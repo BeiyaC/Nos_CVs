@@ -1,0 +1,49 @@
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+$utilities: map-merge(
+  $utilities,("rounded-top": map-merge(
+        map-get($utilities, "rounded-top"),
+                        (values: map-merge(
+                                map-get(map-get($utilities, "rounded-top"),"values"),
+                                                        (null: 5rem),
+                                ),
+                        ),
+        ),
+        ),
+);
+$utilities: map-merge(
+                $utilities,("rounded-start": map-merge(
+                        map-get($utilities, "rounded-start"),
+                        (values: map-merge(
+                                        map-get(map-get($utilities, "rounded-start"),"values"),
+                                        (null: 5rem),
+                        ),
+                        ),
+        ),
+        ),
+);
+
+$utilities: map-merge(
+                $utilities, (
+                "rounded-top": map-merge(
+                                map-get($utilities, "rounded-top"),
+                                ( responsive: true ),
+                ),
+        )
+);
+$utilities: map-merge(
+                $utilities, (
+                "rounded-start": map-merge(
+                                map-get($utilities, "rounded-start"),
+                                ( responsive: true ),
+                ),
+        )
+);
+
+
+// Example: Style from medium breakpoint and down
+@include media-breakpoint-down(md) {
+  .round {
+    border-top-left-radius: 5rem;
+    border-top-right-radius: 5rem;
+  }
+};
